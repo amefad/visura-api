@@ -104,7 +104,7 @@ curl http://localhost:8000/health
 ### Installazione manuale
 
 ```bash
-git clone https://github.com/menimenocchio/visura-api.git
+git clone https://github.com/zornade/visura-api.git
 cd visura-api
 
 python -m venv .venv
