@@ -115,6 +115,7 @@ class VisuraResponse:
 
 class BrowserManager:
     def __init__(self):
+        self.playwright = None
         self.browser: Optional[Browser] = None
         self.context: Optional[BrowserContext] = None
         self.auth_page: Optional[Page] = None
@@ -125,19 +126,29 @@ class BrowserManager:
     async def initialize(self):
         """Inizializza il browser e il contexto"""
         try:
-            playwright = await async_playwright().start()
-            self.browser = await playwright.chromium.launch(
+            # Ferma un'eventuale istanza Playwright precedente per evitare
+            # processi Chromium orfani al re-init (session recovery, restart).
+            if self.playwright is not None:
+                try:
+                    await self.playwright.stop()
+                except Exception as e:
+                    logger.warning(f"Errore stop playwright precedente: {e}")
+                self.playwright = None
+
+            self.playwright = await async_playwright().start()
+            self.browser = await self.playwright.chromium.launch(
                 headless=True,
                 handle_sigint=False,  # Non chiudere Chromium su Ctrl+C — gestiamo noi il logout
                 handle_sigterm=False,  # Idem per SIGTERM
                 args=[
+                    # NB: '--single-process' rimosso: incompatibile con Docker,
+                    # causa crash sporadici su re-init.
                     "--no-sandbox",
                     "--disable-setuid-sandbox",
                     "--disable-dev-shm-usage",
                     "--disable-gpu",
                     "--no-first-run",
                     "--no-zygote",
-                    "--single-process",
                     "--disable-extensions",
                 ],
             )
@@ -479,6 +490,12 @@ class BrowserManager:
                 await self.browser.close()
         except Exception as e:
             logger.warning(f"Errore durante la chiusura del browser: {e}")
+        try:
+            if self.playwright is not None:
+                await self.playwright.stop()
+                self.playwright = None
+        except Exception as e:
+            logger.warning(f"Errore durante lo stop di playwright: {e}")
         logger.info("Browser chiuso")
 
     async def graceful_shutdown(self):

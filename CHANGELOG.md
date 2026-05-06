@@ -33,3 +33,4 @@ e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/
 
 ### Corretto
 - Rimosso `sys.exit(0)` duplicato nel gestore dei segnali
+- **Stabilità Docker**: rimosso flag Chromium `--single-process` (incompatibile con Docker, causava crash sporadici al re-init) e aggiunta chiusura esplicita dell'istanza Playwright precedente in `BrowserManager.initialize()` e `BrowserManager.close()` per evitare processi Chromium orfani durante session recovery e shutdown
