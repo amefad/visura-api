@@ -734,12 +734,60 @@ Per debug approfondito, ispeziona i file HTML in `logs/pages/` — mostrano esat
 
 Sviluppato da [zornade](https://zornade.com).
 
+Copyright © 2026 [zornade](https://zornade.com).
+
 ---
 
 ## Licenza
 
-Distribuito sotto licenza [GNU Affero General Public License v3.0](LICENSE).
+Distribuito sotto licenza **[GNU Affero General Public License v3.0 — only](LICENSE)** (`SPDX-License-Identifier: AGPL-3.0-only`).
+
+Vedi anche il file [`NOTICE`](NOTICE) per il testo completo dell'avviso di copyright e per le obbligazioni AGPL §13 imposte agli operatori di servizi di rete.
+
+### Cronologia della licenza
+
+| Data       | Commit    | Licenza                  |
+|------------|-----------|--------------------------|
+| 2026-03-04 | `128082c` | GPL-3.0-only (release iniziale) |
+| 2026-03-12 | `c8126e8` | **AGPL-3.0-only** (licenza attuale) |
+
+> Chi ha forkato il repository **prima** del commit `c8126e8` conserva un grant perpetuo GPL-3.0 su quella snapshot. Chi ha forkato o tirato modifiche **dopo** `c8126e8` è vincolato ad AGPL-3.0-only.
+
+### ⚠️ Stai forkando? Leggi prima questa sezione
+
+AGPL-3.0 è una **strong copyleft network license**. In particolare la clausola §13 ("Remote Network Interaction") impone obblighi che molti sviluppatori sottovalutano. Se intendi forkare `visura-api` e usarlo in un servizio di rete, sei tenuto a:
+
+1. **Mantenere AGPL-3.0** in tutte le distribuzioni del fork. Non puoi rilicenziare ad Apache, MIT, BSD, GPL-2, GPL-3 o altre licenze.
+2. **Preservare** il file `LICENSE`, il file `NOTICE`, gli header SPDX e i credit all'autore originale in ogni copia distribuita o ridistribuita.
+3. **Pubblicare le tue modifiche** al codice base sotto AGPL-3.0, includendo l'intera storia git delle modifiche.
+4. **Se esponi il fork (o un suo derivato) come servizio di rete** — SaaS, B2B API, dashboard, microservizio, intranet — devi offrire a tutti gli utenti del servizio l'accesso pubblico al *Corresponding Source* completo dell'opera combinata, comprese:
+   - le tue modifiche al codice base,
+   - **tutte le componenti private linkate o combinate** col servizio (autenticazione, SPID/CIE adapter, frontend, theme, orchestratori, workflow engines, moduli di scoring, integrazioni Stripe/Clerk/CRM, schema DB e migrations Alembic, Dockerfile, Helm chart, IaC),
+   - le installation information necessarie a ricostruire un deploy comparabile.
+5. **Pubblicare un avviso visibile** ("prominent offer") nell'UI o nella documentazione API del servizio, con il link al Corresponding Source.
+
+La mancata conformità ad AGPL §13 termina automaticamente i tuoi diritti sul software (AGPL §8) ed espone a rivendicazioni legali.
+
+### Checklist forker (rapida)
+
+- [ ] Il `LICENSE` del mio fork è ancora `AGPL-3.0-only`?
+- [ ] Il file `NOTICE` è presente e include il copyright originale?
+- [ ] Gli header SPDX nei file sorgente sono preservati?
+- [ ] Il `README` del mio fork attribuisce esplicitamente il progetto upstream?
+- [ ] Tutte le dipendenze private che linkero/combinerò sono pronte a essere pubblicate come Corresponding Source, in caso di deploy in rete?
+- [ ] Ho preparato la "prominent offer" del Corresponding Source nell'UI/docs del mio servizio?
+- [ ] Se non posso/non voglio rispettare uno dei punti sopra, ho contattato `hello@zornade.com` per una licenza commerciale?
+
+### Licenza commerciale (dual licensing)
+
+Se la licenza AGPL-3.0 non si adatta al tuo caso d'uso (es. SaaS proprietario, prodotto closed-source, integrazione in piattaforma enterprise senza obbligo di pubblicare i moduli combinati), è disponibile una **licenza commerciale separata** acquistabile da zornade. Vedi [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md) per condizioni e pricing indicativo.
+
+Contatto: `hello@zornade.com` · [zornade.com/licensing](https://zornade.com/licensing)
+
+### Enforcement
+
+In caso di violazioni AGPL, contattare `hello@zornade.com` con oggetto `[AGPL] <nome del fork o servizio>`. Il maintainer applica le pratiche di enforcement raccomandate da [Software Freedom Conservancy](https://sfconservancy.org/copyleft-compliance/) e [FSF](https://www.fsf.org/licensing/): contatto privato prima di azioni pubbliche, finestra di rimedio di 30 giorni, escalation solo se necessaria.
 
 ---
 
-*Ultimo aggiornamento: marzo 2026*
+*Ultimo aggiornamento: maggio 2026*

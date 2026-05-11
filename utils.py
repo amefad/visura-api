@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Copyright (C) 2026 zornade (https://zornade.com)
+# See LICENSE, NOTICE, and COMMERCIAL-LICENSE.md at the repository root.
+
 import os
 import re
 import time

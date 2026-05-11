@@ -1,3 +1,19 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Copyright (C) 2026 zornade (https://zornade.com)
+#
+# This file is part of Visura API.
+# Visura API is free software: you can redistribute it and/or modify it under
+# the terms of the GNU Affero General Public License v3.0 as published by the
+# Free Software Foundation. See the LICENSE and NOTICE files at the repository
+# root, or https://www.gnu.org/licenses/agpl-3.0.html.
+#
+# AGPL §13: If you run a modified version of this program on a server and let
+# other users interact with it there, you must give them access to the
+# Corresponding Source of your modified version, including any combined
+# private modules. See NOTICE for details.
+#
+# Commercial licensing available: hello@zornade.com
+
 import asyncio
 import logging
 import os
